@@ -41,9 +41,12 @@ public class SwipeLogger : MonoBehaviour
         {
             if (GameManager.instance.coverObjManager.currentCoverObject!=null)
             {
-                GameManager.instance.inputSys.enabled = false;
-                GameManager.instance.coverObjManager.startRotate(cod);
-                lastProcessed = true;
+                if (GameManager.instance.coverObjManager.currentCoverObject.isActiveAndEnabled)
+                {
+                    GameManager.instance.inputSys.enabled = false;
+                    GameManager.instance.coverObjManager.startRotate(cod);
+                    lastProcessed = true;
+                }
             }
 
         }
